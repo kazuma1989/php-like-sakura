@@ -1,0 +1,2 @@
+Action php5 /cgi-scripts/php5.sh
+AddHandler php5 .php
