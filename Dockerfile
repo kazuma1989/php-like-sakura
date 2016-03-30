@@ -1,25 +1,19 @@
 FROM debian:wheezy
 MAINTAINER kazuma1989
 
-# Set aliases and environment variables to make console useful
-COPY skel/.bashrc /tmp/.bashrc
-RUN cat /tmp/.bashrc >> /root/.bashrc \
-    && cat /tmp/.bashrc >> /etc/skel/.bashrc
-
 # Install tools
 RUN apt-get update \
     && apt-get install -y \
         apache2 \
         apache2-suexec-custom \
         curl \
-        less \
         php5-cgi \
         php5-curl \
         php5-gd \
         php5-imagick \
         php5-mysql \
         unzip \
-        vim
+    && apt-get clean
 
 # Activate Apache modules
 RUN a2enmod \
